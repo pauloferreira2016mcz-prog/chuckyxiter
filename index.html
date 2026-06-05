@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@800;900&family=Rajdhani:wght@600;700;900&family=Michroma&display=swap" rel="stylesheet">
 
     <style>
+        img, svg { max-width: 100%; height: auto; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
         body {
@@ -54,14 +55,16 @@
         .card-seletor h3 { font-size: 1.6rem; font-weight: 900; margin-bottom: 12px; text-transform: uppercase; }
         
         .secao-planos { max-width: 1200px; margin: 0 auto; padding: 0 6% 120px 6%; }
-        .conteudo-planos { display: none; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        
+        /* ALTERADO AQUI: minmax ajustado de 280px para 140px para permitir 2 colunas no celular */
+        .conteudo-planos { display: none; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 15px; }
         
         .card-preco { background: rgba(8, 2, 4, 0.9); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 6px; padding: 15px; text-align: center; }
-        .plano-duracao { font-size: 1rem; font-weight: 900; color: #ffffff; margin-bottom: 5px; text-transform: uppercase; }
-        .plano-preco { margin-bottom: 15px; }
-        .cifrao { font-size: 0.8rem; color: #ff002b; }
-        .valor { font-size: 1.5rem; font-weight: 400; font-family: 'Michroma', sans-serif; }
-        .btn-compra { display: block; width: 100%; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); color: #ffffff; padding: 10px; text-decoration: none; font-weight: 800; border-radius: 4px; text-transform: uppercase; font-size: 0.8rem; }
+        .plano-duracao { font-size: 0.9rem; font-weight: 900; color: #ffffff; margin-bottom: 5px; text-transform: uppercase; }
+        .plano-preco { margin-bottom: 10px; }
+        .cifrao { font-size: 0.7rem; color: #ff002b; }
+        .valor { font-size: 1.2rem; font-weight: 400; font-family: 'Michroma', sans-serif; }
+        .btn-compra { display: block; width: 100%; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); color: #ffffff; padding: 8px; text-decoration: none; font-weight: 800; border-radius: 4px; text-transform: uppercase; font-size: 0.7rem; }
         
         .container-flutuante { position: fixed; bottom: 20px; right: 20px; display: flex; flex-direction: column; gap: 10px; z-index: 999; }
         .btn-flutuante { width: 40px; height: 40px; border-radius: 50%; overflow: hidden; box-shadow: 0 4px 10px rgba(255, 0, 43, 0.3); }
@@ -119,7 +122,6 @@
     </section>
 
     <div class="secao-planos">
-        <!-- iOS -->
         <div id="planos-ios" class="conteudo-planos">
             <div style="grid-column: 1 / -1; margin-bottom: 30px;">
                 <div class="container-video-info">
@@ -146,9 +148,7 @@
             <div class="card-preco"><img src="WhatsApp Image 2026-06-05 at 13.16.38.jpeg" style="width: 100%; margin-bottom: 10px; border-radius: 4px;"><div class="plano-duracao fonte-titulo">PAINEL PERMANENTE</div><div class="plano-preco"><span class="cifrao">R$</span><span class="valor">150</span></div><a href="https://seguroamplopay.com/checkout/cmq12tvn3043a01ptiuwoqn2v?offer=JYMUART" target="_blank" class="btn-compra fonte-titulo">Comprar</a></div>
         </div>
 
-        <!-- Android -->
         <div id="planos-android" class="conteudo-planos">
-            
             <h2 class="fonte-titulo" style="grid-column: 1 / -1; margin-top: 20px;">PROXY ANDROID</h2>
             <div class="card-preco"><img src="WhatsApp Image 2026-06-05 at 13.10.46.jpeg" style="width: 100%; margin-bottom: 10px; border-radius: 4px;"><div class="plano-duracao fonte-titulo">1 DIA</div><div class="plano-preco"><span class="cifrao">R$</span><span class="valor">20</span></div><a href="https://seguroamplopay.com/checkout/cmq12iua406cc01pmrxvw6kfz?offer=9EU87J4" target="_blank" class="btn-compra fonte-titulo">Comprar</a></div>
             <div class="card-preco"><img src="WhatsApp Image 2026-06-05 at 13.10.46.jpeg" style="width: 100%; margin-bottom: 10px; border-radius: 4px;"><div class="plano-duracao fonte-titulo">7 DIAS</div><div class="plano-preco"><span class="cifrao">R$</span><span class="valor">40</span></div><a href="https://seguroamplopay.com/checkout/cmq12iua406cc01pmrxvw6kfz?offer=LI33HKR" target="_blank" class="btn-compra fonte-titulo">Comprar</a></div>
