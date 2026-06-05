@@ -41,10 +41,7 @@
         .hero h1 { font-size: 4.2rem; font-weight: 900; margin-bottom: 25px; text-transform: uppercase; background: linear-gradient(180deg, #ffffff 40%, #a3a3a3 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .hero h1 span { background: linear-gradient(180deg, #ff002b 25%, #800015 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         
-        /* Ajuste responsivo extra para celular */
-        @media (max-width: 600px) {
-            .hero h1 { font-size: 2.2rem; padding: 0 10px; }
-        }
+        @media (max-width: 600px) { .hero h1 { font-size: 2.2rem; padding: 0 10px; } }
 
         .hero p { color: #bcbcc6; max-width: 750px; margin: 0 auto 45px auto; font-size: 1.35rem; font-weight: 700; text-transform: uppercase; }
         .btn { display: inline-block; background: linear-gradient(180deg, #ff002b 0%, #b3001e 100%); color: #ffffff; padding: 18px 55px; text-decoration: none; font-weight: 900; font-size: 1.05rem; border-radius: 4px; text-transform: uppercase; box-shadow: 0 4px 25px rgba(255, 0, 43, 0.4); }
@@ -57,7 +54,7 @@
         .card-seletor h3 { font-size: 1.6rem; font-weight: 900; margin-bottom: 12px; text-transform: uppercase; }
         
         .secao-planos { max-width: 1200px; margin: 0 auto; padding: 0 6% 120px 6%; }
-        .conteudo-planos { display: none; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 15px; }
+        .conteudo-planos { display: none; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
         
         .card-preco { background: rgba(8, 2, 4, 0.9); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 6px; padding: 15px; text-align: center; }
         .plano-duracao { font-size: 1rem; font-weight: 900; color: #ffffff; margin-bottom: 5px; text-transform: uppercase; }
@@ -121,33 +118,46 @@
     </section>
 
     <div class="secao-planos">
+        <!-- iOS -->
         <div id="planos-ios" class="conteudo-planos">
             <div style="grid-column: 1 / -1; margin-bottom: 30px;">
                 <div class="container-video-info">
-                    <div class="video-box">
-                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/lfhwVohwD00" frameborder="0" allowfullscreen></iframe>
-                    </div>
-                    <div class="texto-explicativo">
-                        <h3 class="fonte-titulo" style="color: #ff002b; margin-bottom: 10px;">VÍDEO DEMONSTRATIVO: COMO FUNCIONA O XIT VIA PROXY</h3>
-                        <p>Nosso sistema oferece suporte completo para:</p>
-                        <p>• HS Pescoço | HS Alto | HS Peito</p>
-                        <p>• Opções com Antena e sem Antena</p>
-                    </div>
+                    <div class="video-box"><iframe width="100%" height="100%" src="https://www.youtube.com/embed/lfhwVohwD00" frameborder="0" allowfullscreen></iframe></div>
+                    <div class="texto-explicativo"><h3 class="fonte-titulo" style="color: #ff002b; margin-bottom: 10px;">VÍDEO DEMONSTRATIVO: PROXY IOS</h3><p>Nosso sistema oferece suporte completo para HS Pescoço, Alto e Peito.</p></div>
                 </div>
             </div>
-            <div class="card-preco"><img src="IMG_1277.JPEG" style="width:100%; border-radius:4px; margin-bottom:10px;"><div class="plano-duracao fonte-titulo">1 DIA</div><div class="plano-preco"><span class="cifrao">R$</span><span class="valor">15</span></div><a href="https://seguroamplopay.com/checkout/cmoodfyh0001k1so7ca62goct?offer=FT4WMOL" target="_blank" class="btn-compra fonte-titulo">Comprar</a></div>
-            <div class="card-preco"><img src="IMG_1277.JPEG" style="width:100%; border-radius:4px; margin-bottom:10px;"><div class="plano-duracao fonte-titulo">7 DIAS</div><div class="plano-preco"><span class="cifrao">R$</span><span class="valor">34,90</span></div><a href="https://seguroamplopay.com/checkout/cmoodkes900341zo7q2a6s0tt?offer=O9UPYNJ" target="_blank" class="btn-compra fonte-titulo">Comprar</a></div>
-            <div class="card-preco"><img src="IMG_1277.JPEG" style="width:100%; border-radius:4px; margin-bottom:10px;"><div class="plano-duracao fonte-titulo">1 MÊS</div><div class="plano-preco"><span class="cifrao">R$</span><span class="valor">69,90</span></div><a href="https://seguroamplopay.com/checkout/cmooe2sl500911so73l5c5d5g?offer=W0F211S" target="_blank" class="btn-compra fonte-titulo">Comprar</a></div>
-            <div class="card-preco"><img src="IMG_1277.JPEG" style="width:100%; border-radius:4px; margin-bottom:10px;"><div class="plano-duracao fonte-titulo">4 MESES</div><div class="plano-preco"><span class="cifrao">R$</span><span class="valor">95</span></div><a href="https://seguroamplopay.com/checkout/cmmw5v0rw01631rpoax7hv8qs?offer=FK4YH77" target="_blank" class="btn-compra fonte-titulo">Comprar</a></div>
-            <div class="card-preco"><img src="IMG_1277.JPEG" style="width:100%; border-radius:4px; margin-bottom:10px;"><div class="plano-duracao fonte-titulo">PERMANENTE</div><div class="plano-preco"><span class="cifrao">R$</span><span class="valor">150</span></div><a href="https://seguroamplopay.com/checkout/cmokkdpc307n1x8qqvr4kx385?offer=YKEYIDH" target="_blank" class="btn-compra fonte-titulo">Comprar</a></div>
+            <div class="card-preco"><img src="IMG_1277.JPEG" style="width: 100%; margin-bottom: 10px; border-radius: 4px;"><div class="plano-duracao fonte-titulo">1 DIA</div><div class="plano-preco"><span class="cifrao">R$</span><span class="valor">15</span></div><a href="https://seguroamplopay.com/checkout/cmoodfyh0001k1so7ca62goct?offer=FT4WMOL" target="_blank" class="btn-compra fonte-titulo">Comprar</a></div>
+            <div class="card-preco"><img src="IMG_1277.JPEG" style="width: 100%; margin-bottom: 10px; border-radius: 4px;"><div class="plano-duracao fonte-titulo">7 DIAS</div><div class="plano-preco"><span class="cifrao">R$</span><span class="valor">34,90</span></div><a href="https://seguroamplopay.com/checkout/cmoodkes900341zo7q2a6s0tt?offer=O9UPYNJ" target="_blank" class="btn-compra fonte-titulo">Comprar</a></div>
+            <div class="card-preco"><img src="IMG_1277.JPEG" style="width: 100%; margin-bottom: 10px; border-radius: 4px;"><div class="plano-duracao fonte-titulo">30 DIAS</div><div class="plano-preco"><span class="cifrao">R$</span><span class="valor">69,90</span></div><a href="https://seguroamplopay.com/checkout/cmooe2sl500911so73l5c5d5g?offer=W0F211S" target="_blank" class="btn-compra fonte-titulo">Comprar</a></div>
+            <div class="card-preco"><img src="IMG_1277.JPEG" style="width: 100%; margin-bottom: 10px; border-radius: 4px;"><div class="plano-duracao fonte-titulo">4 MESES</div><div class="plano-preco"><span class="cifrao">R$</span><span class="valor">95</span></div><a href="https://seguroamplopay.com/checkout/cmmw5v0rw01631rpoax7hv8qs?offer=FK4YH77" target="_blank" class="btn-compra fonte-titulo">Comprar</a></div>
+            <div class="card-preco"><img src="IMG_1277.JPEG" style="width: 100%; margin-bottom: 10px; border-radius: 4px;"><div class="plano-duracao fonte-titulo">PERMANENTE</div><div class="plano-preco"><span class="cifrao">R$</span><span class="valor">150</span></div><a href="https://seguroamplopay.com/checkout/cmokkdpc307n1x8qqvr4kx385?offer=YKEYIDH" target="_blank" class="btn-compra fonte-titulo">Comprar</a></div>
+            
+            <div style="grid-column: 1 / -1; margin-top: 50px; margin-bottom: 30px;">
+                <div class="container-video-info">
+                    <div class="video-box"><iframe width="100%" height="100%" src="https://www.youtube.com/embed/iOxeq6UVMew" frameborder="0" allowfullscreen></iframe></div>
+                    <div class="texto-explicativo"><h3 class="fonte-titulo" style="color: #ff002b; margin-bottom: 10px;">VÍDEO DEMONSTRATIVO: PAINEL IOS</h3><p>Controle total com nossa interface intuitiva e suporte premium 24h.</p></div>
+                </div>
+            </div>
+            <div class="card-preco"><img src="IMG_1277.JPEG" style="width: 100%; margin-bottom: 10px; border-radius: 4px;"><div class="plano-duracao fonte-titulo">PAINEL 1 DIA</div><div class="plano-preco"><span class="cifrao">R$</span><span class="valor">15</span></div><a href="https://seguroamplopay.com/checkout/cmq12tvn3043a01ptiuwoqn2v?offer=LTO81A1" target="_blank" class="btn-compra fonte-titulo">Comprar</a></div>
+            <div class="card-preco"><img src="IMG_1277.JPEG" style="width: 100%; margin-bottom: 10px; border-radius: 4px;"><div class="plano-duracao fonte-titulo">PAINEL 7 DIAS</div><div class="plano-preco"><span class="cifrao">R$</span><span class="valor">34,90</span></div><a href="https://seguroamplopay.com/checkout/cmq12tvn3043a01ptiuwoqn2v?offer=T9MKC8P" target="_blank" class="btn-compra fonte-titulo">Comprar</a></div>
+            <div class="card-preco"><img src="IMG_1277.JPEG" style="width: 100%; margin-bottom: 10px; border-radius: 4px;"><div class="plano-duracao fonte-titulo">PAINEL 30 DIAS</div><div class="plano-preco"><span class="cifrao">R$</span><span class="valor">69,90</span></div><a href="https://seguroamplopay.com/checkout/cmq12tvn3043a01ptiuwoqn2v?offer=15051GB" target="_blank" class="btn-compra fonte-titulo">Comprar</a></div>
+            <div class="card-preco"><img src="IMG_1277.JPEG" style="width: 100%; margin-bottom: 10px; border-radius: 4px;"><div class="plano-duracao fonte-titulo">PAINEL 4 MESES</div><div class="plano-preco"><span class="cifrao">R$</span><span class="valor">95</span></div><a href="https://seguroamplopay.com/checkout/cmq12tvn3043a01ptiuwoqn2v?offer=TVYI8XT" target="_blank" class="btn-compra fonte-titulo">Comprar</a></div>
+            <div class="card-preco"><img src="IMG_1277.JPEG" style="width: 100%; margin-bottom: 10px; border-radius: 4px;"><div class="plano-duracao fonte-titulo">PAINEL PERMANENTE</div><div class="plano-preco"><span class="cifrao">R$</span><span class="valor">150</span></div><a href="https://seguroamplopay.com/checkout/cmq12tvn3043a01ptiuwoqn2v?offer=JYMUART" target="_blank" class="btn-compra fonte-titulo">Comprar</a></div>
         </div>
 
+        <!-- Android -->
         <div id="planos-android" class="conteudo-planos">
-            <div class="card-preco"><img src="IMG_3268.JPEG" style="width:100%; border-radius:4px; margin-bottom:10px;"><div class="plano-duracao fonte-titulo">1 DIA</div><div class="plano-preco"><span class="cifrao">R$</span><span class="valor">20</span></div><a href="https://seguroamplopay.com/checkout/cmq02cpc500ue01psgp0hjkhq?offer=KPIP1AO" target="_blank" class="btn-compra fonte-titulo">Comprar</a></div>
-            <div class="card-preco"><img src="IMG_3268.JPEG" style="width:100%; border-radius:4px; margin-bottom:10px;"><div class="plano-duracao fonte-titulo">7 DIAS</div><div class="plano-preco"><span class="cifrao">R$</span><span class="valor">40</span></div><a href="https://seguroamplopay.com/checkout/cmq02cpc500ue01psgp0hjkhq?offer=UBWVI76" target="_blank" class="btn-compra fonte-titulo">Comprar</a></div>
-            <div class="card-preco"><img src="IMG_3268.JPEG" style="width:100%; border-radius:4px; margin-bottom:10px;"><div class="plano-duracao fonte-titulo">1 MÊS</div><div class="plano-preco"><span class="cifrao">R$</span><span class="valor">70</span></div><a href="https://seguroamplopay.com/checkout/cmq02cpc500ue01psgp0hjkhq?offer=QBP9NF9" target="_blank" class="btn-compra fonte-titulo">Comprar</a></div>
-            <div class="card-preco"><img src="IMG_3268.JPEG" style="width:100%; border-radius:4px; margin-bottom:10px;"><div class="plano-duracao fonte-titulo">4 MESES</div><div class="plano-preco"><span class="cifrao">R$</span><span class="valor">100</span></div><a href="https://seguroamplopay.com/checkout/cmq02cpc500ue01psgp0hjkhq?offer=0KCQX9T" target="_blank" class="btn-compra fonte-titulo">Comprar</a></div>
-            <div class="card-preco"><img src="IMG_3268.JPEG" style="width:100%; border-radius:4px; margin-bottom:10px;"><div class="plano-duracao fonte-titulo">PERMANENTE</div><div class="plano-preco"><span class="cifrao">R$</span><span class="valor">150</span></div><a href="https://seguroamplopay.com/checkout/cmq02cpc500ue01psgp0hjkhq?offer=5YYPOJF" target="_blank" class="btn-compra fonte-titulo">Comprar</a></div>
+            <div class="card-preco"><img src="IMG_3268.JPEG" style="width: 100%; margin-bottom: 10px; border-radius: 4px;"><div class="plano-duracao fonte-titulo">PROXY 1 DIA</div><div class="plano-preco"><span class="cifrao">R$</span><span class="valor">20</span></div><a href="https://seguroamplopay.com/checkout/cmq12iua406cc01pmrxvw6kfz?offer=9EU87J4" target="_blank" class="btn-compra fonte-titulo">Comprar</a></div>
+            <div class="card-preco"><img src="IMG_3268.JPEG" style="width: 100%; margin-bottom: 10px; border-radius: 4px;"><div class="plano-duracao fonte-titulo">PROXY 7 DIAS</div><div class="plano-preco"><span class="cifrao">R$</span><span class="valor">40</span></div><a href="https://seguroamplopay.com/checkout/cmq12iua406cc01pmrxvw6kfz?offer=LI33HKR" target="_blank" class="btn-compra fonte-titulo">Comprar</a></div>
+            <div class="card-preco"><img src="IMG_3268.JPEG" style="width: 100%; margin-bottom: 10px; border-radius: 4px;"><div class="plano-duracao fonte-titulo">PROXY 30 DIAS</div><div class="plano-preco"><span class="cifrao">R$</span><span class="valor">70</span></div><a href="https://seguroamplopay.com/checkout/cmq12iua406cc01pmrxvw6kfz?offer=DLDVD3J" target="_blank" class="btn-compra fonte-titulo">Comprar</a></div>
+            <div class="card-preco"><img src="IMG_3268.JPEG" style="width: 100%; margin-bottom: 10px; border-radius: 4px;"><div class="plano-duracao fonte-titulo">PROXY 4 MESES</div><div class="plano-preco"><span class="cifrao">R$</span><span class="valor">100</span></div><a href="https://seguroamplopay.com/checkout/cmq12iua406cc01pmrxvw6kfz?offer=ACUTAEM" target="_blank" class="btn-compra fonte-titulo">Comprar</a></div>
+            <div class="card-preco"><img src="IMG_3268.JPEG" style="width: 100%; margin-bottom: 10px; border-radius: 4px;"><div class="plano-duracao fonte-titulo">PROXY PERMANENTE</div><div class="plano-preco"><span class="cifrao">R$</span><span class="valor">150</span></div><a href="https://seguroamplopay.com/checkout/cmq12iua406cc01pmrxvw6kfz?offer=V37W1U8" target="_blank" class="btn-compra fonte-titulo">Comprar</a></div>
+
+            <div class="card-preco"><img src="IMG_3268.JPEG" style="width: 100%; margin-bottom: 10px; border-radius: 4px;"><div class="plano-duracao fonte-titulo">PAINEL 1 DIA</div><div class="plano-preco"><span class="cifrao">R$</span><span class="valor">20</span></div><a href="https://seguroamplopay.com/checkout/cmq02cpc500ue01psgp0hjkhq?offer=KPIP1AO" target="_blank" class="btn-compra fonte-titulo">Comprar</a></div>
+            <div class="card-preco"><img src="IMG_3268.JPEG" style="width: 100%; margin-bottom: 10px; border-radius: 4px;"><div class="plano-duracao fonte-titulo">PAINEL 7 DIAS</div><div class="plano-preco"><span class="cifrao">R$</span><span class="valor">40</span></div><a href="https://seguroamplopay.com/checkout/cmq02cpc500ue01psgp0hjkhq?offer=UBWVI76" target="_blank" class="btn-compra fonte-titulo">Comprar</a></div>
+            <div class="card-preco"><img src="IMG_3268.JPEG" style="width: 100%; margin-bottom: 10px; border-radius: 4px;"><div class="plano-duracao fonte-titulo">PAINEL 30 DIAS</div><div class="plano-preco"><span class="cifrao">R$</span><span class="valor">70</span></div><a href="https://seguroamplopay.com/checkout/cmq02cpc500ue01psgp0hjkhq?offer=QBP9NF9" target="_blank" class="btn-compra fonte-titulo">Comprar</a></div>
+            <div class="card-preco"><img src="IMG_3268.JPEG" style="width: 100%; margin-bottom: 10px; border-radius: 4px;"><div class="plano-duracao fonte-titulo">PAINEL 4 MESES</div><div class="plano-preco"><span class="cifrao">R$</span><span class="valor">100</span></div><a href="https://seguroamplopay.com/checkout/cmq02cpc500ue01psgp0hjkhq?offer=0KCQX9T" target="_blank" class="btn-compra fonte-titulo">Comprar</a></div>
+            <div class="card-preco"><img src="IMG_3268.JPEG" style="width: 100%; margin-bottom: 10px; border-radius: 4px;"><div class="plano-duracao fonte-titulo">PAINEL PERMANENTE</div><div class="plano-preco"><span class="cifrao">R$</span><span class="valor">150</span></div><a href="https://seguroamplopay.com/checkout/cmq02cpc500ue01psgp0hjkhq?offer=5YYPOJF" target="_blank" class="btn-compra fonte-titulo">Comprar</a></div>
         </div>
     </div>
 
