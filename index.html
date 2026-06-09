@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHUCKYXITER — Painel Oficial</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@800;900&family=Rajdhani:wght@600;700;900&family=Michroma&display=swap" rel="stylesheet">
+
+    <style>
+        img, svg { max-width: 100%; height: auto; }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            background: linear-gradient(rgba(0, 0, 0, 0.45) 1px, transparent 1px) 0 0 / 50px 50px,
+                        linear-gradient(90deg, rgba(0, 0, 0, 0.45) 1px, transparent 1px) 0 0 / 50px 50px,
+                        radial-gradient(ellipse at center, #140104 0%, #050001 55%, #2d0007 85%, #40000a 100%);
+            background-attachment: fixed;
+            color: #ffffff;
+            min-height: 100vh;
+            font-family: 'Rajdhani', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        .fonte-titulo { font-family: 'Orbitron', sans-serif; letter-spacing: 2px; }
+        
+        .header { display: flex; justify-content: space-between; align-items: center; padding: 15px 4%; background-color: rgba(4, 0, 1, 0.85); backdrop-filter: blur(15px); border-bottom: 1px solid rgba(255, 0, 43, 0.15); position: sticky; top: 40px; z-index: 1000; }
+        .logo-container { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+        .logo-img { width: 30px; height: 30px; object-fit: contain; }
+        .logo-text { font-size: 16px; font-weight: 900; text-transform: uppercase; }
+        .logo-text span { color: #ff002b; }
+        .nav-links { display: flex; align-items: center; gap: 10px; flex-wrap: nowrap; justify-content: flex-end; }
+        .nav-links a { color: #b5b5bc; text-decoration: none; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; transition: 0.3s; letter-spacing: 0.5px; cursor: pointer; }
+        .barra-duvidas { display: block; width: 100%; background: #25D366; color: #ffffff; text-align: center; padding: 10px; font-size: 0.8rem; font-weight: 800; text-decoration: none; text-transform: uppercase; letter-spacing: 1px; position: sticky; top: 0; z-index: 1001; }
+        .barra-duvidas:hover { background: #1ebe5a; color: #ffffff; }
+        
+        .nav-links a:hover { color: #ff002b; }
+        
+        .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); backdrop-filter: blur(5px); }
+        .modal-conteudo { background: #0c0406; border: 1px solid #ff002b; margin: 15% auto; padding: 30px; width: 300px; text-align: center; border-radius: 8px; }
+        .btn-modal { display: block; background: #ff002b; color: white; padding: 15px; margin: 10px 0; text-decoration: none; font-weight: 800; border-radius: 4px; text-transform: uppercase; }
+        
+        .hero { padding: 140px 20px 100px 20px; text-align: center; }
+        .hero h1 { font-size: 4.2rem; font-weight: 900; margin-bottom: 25px; text-transform: uppercase; background: linear-gradient(180deg, #ffffff 40%, #a3a3a3 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero h1 span { background: linear-gradient(180deg, #ff002b 25%, #800015 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        
+        @media (max-width: 600px) { .hero h1 { font-size: 2.2rem; padding: 0 10px; } }
+
+        .hero p { color: #bcbcc6; max-width: 750px; margin: 0 auto 45px auto; font-size: 1.35rem; font-weight: 700; text-transform: uppercase; }
+        .btn { display: inline-block; background: linear-gradient(180deg, #ff002b 0%, #b3001e 100%); color: #ffffff; padding: 18px 55px; text-decoration: none; font-weight: 900; font-size: 1.05rem; border-radius: 4px; text-transform: uppercase; box-shadow: 0 4px 25px rgba(255, 0, 43, 0.4); }
+        .barra-status { background: rgba(4, 0, 1, 0.75); border-top: 1px solid rgba(255, 0, 43, 0.2); border-bottom: 1px solid rgba(255, 0, 43, 0.2); padding: 18px; text-align: center; font-weight: 700; font-size: 0.95rem; display: flex; justify-content: center; gap: 60px; backdrop-filter: blur(10px); }
+        .produtos-container { padding: 100px 6% 40px 6%; text-align: center; }
+        
+        /* AJUSTE RESPONSIVO: Ícones lado a lado */
+        .grid-cards { display: flex; justify-content: center; gap: 15px; flex-wrap: nowrap; margin: 0 auto; max-width: 100%; }
+        .card-seletor { background: rgba(12, 4, 6, 0.8); border: 1px solid rgba(255, 0, 43, 0.1); border-radius: 8px; padding: 25px 15px; display: flex; flex-direction: column; align-items: center; width: 100%; max-width: 200px; cursor: pointer; }
+        
+        .card-icone-svg { width: 45px; height: 45px; margin-bottom: 15px; fill: #ff002b; }
+        .card-icone-img { width: 45px; height: 45px; margin-bottom: 15px; object-fit: contain; }
+        .card-seletor h3 { font-size: 1.2rem; font-weight: 900; margin-bottom: 5px; text-transform: uppercase; }
+        
+        .secao-planos { max-width: 1200px; margin: 0 auto; padding: 0 6% 120px 6%; }
+        .conteudo-planos { display: none; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        @media (max-width: 600px) { .conteudo-planos { grid-template-columns: repeat(2, 1fr); gap: 10px; } .card-preco { padding: 10px; } .plano-duracao { font-size: 0.7rem; } .valor { font-size: 1.1rem; } .btn-compra { font-size: 0.65rem; padding: 8px; } }
+        
+        .card-preco { background: rgba(8, 2, 4, 0.9); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 6px; padding: 15px; text-align: center; }
+        .plano-duracao { font-size: 1rem; font-weight: 900; color: #ffffff; margin-bottom: 5px; text-transform: uppercase; }
+        .plano-preco { margin-bottom: 15px; }
+        .cifrao { font-size: 0.8rem; color: #ff002b; }
+        .valor { font-size: 1.5rem; font-weight: 400; font-family: 'Michroma', sans-serif; }
+        .btn-compra { display: block; width: 100%; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); color: #ffffff; padding: 10px; text-decoration: none; font-weight: 800; border-radius: 4px; text-transform: uppercase; font-size: 0.8rem; }
+        
+        .container-flutuante { position: fixed; bottom: 20px; right: 20px; display: flex; flex-direction: column; gap: 10px; z-index: 999; }
+        .btn-flutuante { width: 40px; height: 40px; border-radius: 50%; overflow: hidden; box-shadow: 0 4px 10px rgba(255, 0, 43, 0.3); }
+        
+        .container-video-info { max-width: 800px; margin: 0 auto 30px auto; text-align: center; color: #ffffff; }
+        .video-box { width: 100%; aspect-ratio: 16/9; background: #000; margin-bottom: 15px; border: 1px solid #ff002b; }
+        .texto-explicativo { margin-top: 15px; line-height: 1.6; font-size: 1.1rem; color: #d1d1d1; }
+        .box-explicacao { grid-column: 1 / -1; background: rgba(255, 0, 43, 0.05); padding: 20px; border-radius: 8px; border: 1px solid rgba(255, 0, 43, 0.2); margin: 20px 0; color: #ffebed; }
+    </style>
+</head>
+<body>
+
+    <a href="https://wa.me/5584920021373" target="_blank" class="barra-duvidas fonte-titulo">TEM DÚVIDAS? ENTRE EM CONTATO COM SUPORTE AQUI</a>
+    <header class="header">
+        <div class="logo-container">
+            <img src="IMG_0939.jpeg" class="logo-img" alt="Logo">
+            <div class="logo-text fonte-titulo">CHUCKY<span>XITER</span></div>
+        </div>
+        <nav class="nav-links fonte-titulo">
+            <a onclick="document.getElementById('meuModal').style.display='block'">SUPORTE VIP</a>
+        </nav>
+    </header>
+
+    <div id="meuModal" class="modal" onclick="this.style.display='none'">
+        <div class="modal-conteudo" onclick="event.stopPropagation()">
+            <h3 class="fonte-titulo" style="margin-bottom: 20px;">ESCOLHA O CANAL</h3>
+            <a href="https://discord.gg/5TgxUsFmm" target="_blank" class="btn-modal">Discord</a>
+            <a href="https://www.instagram.com/chukyxiter" target="_blank" class="btn-modal">Instagram</a>
+        </div>
+    </div>
+
+    <section class="hero">
+        <h1 class="fonte-titulo">CHUCKY<span>XITER</span></h1>
+        <p>MELHOR PROXY DO CENARIO E PAINEIS</p>
+        <a href="#vitrine" class="btn fonte-titulo">Ver Produtos</a>
+    </section>
+
+    <div class="barra-status">
+        <span>7 DIAS DE GARANTIA</span>
+        <span>ENTREGA AUTOMÁTICA</span>
+        <span>SUPORTE PREMIUM</span>
+    </div>
+
+    <section id="vitrine" class="produtos-container">
+        <h2 class="fonte-titulo">PRODUTOS DISPONÍVEIS</h2>
+        <div class="grid-cards">
+            <div class="card-seletor" onclick="mostrarPlanos('planos-ios')">
+                <svg class="card-icone-svg" viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.21.67-2.93 1.49-.62.69-1.16 1.84-1.01 2.96 1.12.09 2.27-.58 2.95-1.39z"/></svg>
+                <h3 class="fonte-titulo">IOS</h3>
+            </div>
+            <div class="card-seletor" onclick="mostrarPlanos('planos-android')">
+                <img src="WhatsApp Image 2026-06-04 at 18.57.24.jpeg" class="card-icone-img" alt="Android">
+                <h3 class="fonte-titulo">ANDROID</h3>
+            </div>
+        </div>
+    </section>
+
+    <div class="secao-planos">
+        <div id="planos-ios" class="conteudo-planos">
+            <div style="grid-column: 1 / -1; margin-bottom: 30px;">
+                <div class="container-video-info">
+                    <div class="video-box"><iframe width="100%" height="100%" src="https://www.youtube.com/embed/lfhwVohwD00" frameborder="0" allowfullscreen></iframe></div>
+                    <div class="texto-explicativo"><h3 class="fonte-titulo" style="color: #ff002b; margin-bottom: 10px;">VÍDEO DEMONSTRATIVO: PROXY IOS</h3><p>Nosso sistema oferece suporte completo para HS Pescoço, Alto e Peito.</p></div>
+                </div>
+            </div>
+            <div class="card-preco"><img src="IMG_1277.JPEG" style="width: 100%; margin-bottom: 10px; border-radius: 4px;"><div class="plano-duracao fonte-titulo">1 DIA</div><div class="plano-preco"><span class="cifrao">R$</span><span class="valor">15</span></div><a href="https://seguroamplopay.com/checkout/cmoodfyh0001k1so7ca62goct?offer=FT4WMOL" target="_blank" class="btn-compra fonte-titulo">Comprar</a></div>
+            <div class="card-preco"><img src="IMG_1277.JPEG" style="width: 100%; margin-bottom: 10px; border-radius: 4px;"><div class="plano-duracao fonte-titulo">7 DIAS</div><div class="plano-preco"><span class="cifrao">R$</span><span class="valor">34,90</span></div><a href="https://seguroamplopay.com/checkout/cmoodkes900341zo7q2a6s0tt?offer=O9UPYNJ" target="_blank" class="btn-compra fonte-titulo">Comprar</a></div>
+            <div class="card-preco"><img src="IMG_1277.JPEG" style="width: 100%; margin-bottom: 10px; border-radius: 4px;"><div class="plano-duracao fonte-titulo">30 DIAS</div><div class="plano-preco"><span class="cifrao">R$</span><span class="valor">69,90</span></div><a href="https://seguroamplopay.com/checkout/cmooe2sl500911so73l5c5d5g?offer=W0F211S" target="_blank" class="btn-compra fonte-titulo">Comprar</a></div>
+            <div class="card-preco"><img src="IMG_1277.JPEG" style="width: 100%; margin-bottom: 10px; border-radius: 4px;"><div class="plano-duracao fonte-titulo">4 MESES</div><div class="plano-preco"><span class="cifrao">R$</span><span class="valor">95</span></div><a href="https://seguroamplopay.com/checkout/cmmw5v0rw01631rpoax7hv8qs?offer=FK4YH77" target="_blank" class="btn-compra fonte-titulo">Comprar</a></div>
+            <div class="card-preco"><img src="IMG_1277.JPEG" style="width: 100%; margin-bottom: 10px; border-radius: 4px;"><div class="plano-duracao fonte-titulo">PERMANENTE</div><div class="plano-preco"><span class="cifrao">R$</span><span class="valor">150</span></div><a href="https://seguroamplopay.com/checkout/cmokkdpc307n1x8qqvr4kx385?offer=YKEYIDH" target="_blank" class="btn-compra fonte-titulo">Comprar</a></div>
+            
+            <div style="grid-column: 1 / -1; margin-top: 50px; margin-bottom: 30px;">
+                <div class="container-video-info">
+                    <div class="video-box"><iframe width="100%" height="100%" src="https://www.youtube.com/embed/iOxeq6UVMew" frameborder="0" allowfullscreen></iframe></div>
+                    <div class="texto-explicativo"><h3 class="fonte-titulo" style="color: #ff002b; margin-bottom: 10px;">VÍDEO DEMONSTRATIVO: PAINEL IOS</h3><p>Controle total com nossa interface intuitiva e suporte premium 24h.</p></div>
+                </div>
+            </div>
+            <div class="card-preco"><img src="WhatsApp Image 2026-06-05 at 13.16.38.jpeg" style="width: 100%; margin-bottom: 10px; border-radius: 4px;"><div class="plano-duracao fonte-titulo">PAINEL 1 DIA</div><div class="plano-preco"><span class="cifrao">R$</span><span class="valor">15</span></div><a href="https://seguroamplopay.com/checkout/cmq12tvn3043a01ptiuwoqn2v?offer=LTO81A1" target="_blank" class="btn-compra fonte-titulo">Comprar</a></div>
+            <div class="card-preco"><img src="WhatsApp Image 2026-06-05 at 13.16.38.jpeg" style="width: 100%; margin-bottom: 10px; border-radius: 4px;"><div class="plano-duracao fonte-titulo">PAINEL 7 DIAS</div><div class="plano-preco"><span class="cifrao">R$</span><span class="valor">34,90</span></div><a href="https://seguroamplopay.com/checkout/cmq12tvn3043a01ptiuwoqn2v?offer=T9MKC8P" target="_blank" class="btn-compra fonte-titulo">Comprar</a></div>
+            <div class="card-preco"><img src="WhatsApp Image 2026-06-05 at 13.16.38.jpeg" style="width: 100%; margin-bottom: 10px; border-radius: 4px;"><div class="plano-duracao fonte-titulo">PAINEL 30 DIAS</div><div class="plano-preco"><span class="cifrao">R$</span><span class="valor">69,90</span></div><a href="https://seguroamplopay.com/checkout/cmq12tvn3043a01ptiuwoqn2v?offer=15051GB" target="_blank" class="btn-compra fonte-titulo">Comprar</a></div>
+            <div class="card-preco"><img src="WhatsApp Image 2026-06-05 at 13.16.38.jpeg" style="width: 100%; margin-bottom: 10px; border-radius: 4px;"><div class="plano-duracao fonte-titulo">PAINEL 4 MESES</div><div class="plano-preco"><span class="cifrao">R$</span><span class="valor">95</span></div><a href="https://seguroamplopay.com/checkout/cmq12tvn3043a01ptiuwoqn2v?offer=TVYI8XT" target="_blank" class="btn-compra fonte-titulo">Comprar</a></div>
+            <div class="card-preco"><img src="WhatsApp Image 2026-06-05 at 13.16.38.jpeg" style="width: 100%; margin-bottom: 10px; border-radius: 4px;"><div class="plano-duracao fonte-titulo">PAINEL PERMANENTE</div><div class="plano-preco"><span class="cifrao">R$</span><span class="valor">150</span></div><a href="https://seguroamplopay.com/checkout/cmq12tvn3043a01ptiuwoqn2v?offer=JYMUART" target="_blank" class="btn-compra fonte-titulo">Comprar</a></div>
+        </div>
+
+        <div id="planos-android" class="conteudo-planos">
+            <h2 class="fonte-titulo" style="grid-column: 1 / -1; margin-top: 20px;">PROXY ANDROID</h2>
+            <div class="card-preco"><img src="WhatsApp Image 2026-06-05 at 13.10.46.jpeg" style="width: 100%; margin-bottom: 10px; border-radius: 4px;"><div class="plano-duracao fonte-titulo">1 DIA</div><div class="plano-preco"><span class="cifrao">R$</span><span class="valor">20</span></div><a href="https://seguroamplopay.com/checkout/cmq12iua406cc01pmrxvw6kfz?offer=9EU87J4" target="_blank" class="btn-compra fonte-titulo">Comprar</a></div>
+            <div class="card-preco"><img src="WhatsApp Image 2026-06-05 at 13.10.46.jpeg" style="width: 100%; margin-bottom: 10px; border-radius: 4px;"><div class="plano-duracao fonte-titulo">7 DIAS</div><div class="plano-preco"><span class="cifrao">R$</span><span class="valor">40</span></div><a href="https://seguroamplopay.com/checkout/cmq12iua406cc01pmrxvw6kfz?offer=LI33HKR" target="_blank" class="btn-compra fonte-titulo">Comprar</a></div>
+            <div class="card-preco"><img src="WhatsApp Image 2026-06-05 at 13.10.46.jpeg" style="width: 100%; margin-bottom: 10px; border-radius: 4px;"><div class="plano-duracao fonte-titulo">30 DIAS</div><div class="plano-preco"><span class="cifrao">R$</span><span class="valor">70</span></div><a href="https://seguroamplopay.com/checkout/cmq12iua406cc01pmrxvw6kfz?offer=DLDVD3J" target="_blank" class="btn-compra fonte-titulo">Comprar</a></div>
+            <div class="card-preco"><img src="WhatsApp Image 2026-06-05 at 13.10.46.jpeg" style="width: 100%; margin-bottom: 10px; border-radius: 4px;"><div class="plano-duracao fonte-titulo">4 MESES</div><div class="plano-preco"><span class="cifrao">R$</span><span class="valor">100</span></div><a href="https://seguroamplopay.com/checkout/cmq12iua406cc01pmrxvw6kfz?offer=ACUTAEM" target="_blank" class="btn-compra fonte-titulo">Comprar</a></div>
+            <div class="card-preco"><img src="WhatsApp Image 2026-06-05 at 13.10.46.jpeg" style="width: 100%; margin-bottom: 10px; border-radius: 4px;"><div class="plano-duracao fonte-titulo">PERMANENTE</div><div class="plano-preco"><span class="cifrao">R$</span><span class="valor">150</span></div><a href="https://seguroamplopay.com/checkout/cmq12iua406cc01pmrxvw6kfz?offer=V37W1U8" target="_blank" class="btn-compra fonte-titulo">Comprar</a></div>
+            
+            <div class="box-explicacao">
+                <p><strong>DIFERENCIAL PROXY:</strong> Nosso sistema possui HS Pescoço, Alto e Peito. Sistema antiban e antiblacklist, compatível com qualquer modelo de Android, sem limitações de uso.</p>
+            </div>
+
+            <h2 class="fonte-titulo" style="grid-column: 1 / -1; margin-top: 40px;">PAINEL ANDROID</h2>
+            <div class="card-preco"><img src="IMG_3268.JPEG" style="width: 100%; margin-bottom: 10px; border-radius: 4px;"><div class="plano-duracao fonte-titulo">1 DIA</div><div class="plano-preco"><span class="cifrao">R$</span><span class="valor">20</span></div><a href="https://seguroamplopay.com/checkout/cmq02cpc500ue01psgp0hjkhq?offer=KPIP1AO" target="_blank" class="btn-compra fonte-titulo">Comprar</a></div>
+            <div class="card-preco"><img src="IMG_3268.JPEG" style="width: 100%; margin-bottom: 10px; border-radius: 4px;"><div class="plano-duracao fonte-titulo">7 DIAS</div><div class="plano-preco"><span class="cifrao">R$</span><span class="valor">40</span></div><a href="https://seguroamplopay.com/checkout/cmq02cpc500ue01psgp0hjkhq?offer=UBWVI76" target="_blank" class="btn-compra fonte-titulo">Comprar</a></div>
+            <div class="card-preco"><img src="IMG_3268.JPEG" style="width: 100%; margin-bottom: 10px; border-radius: 4px;"><div class="plano-duracao fonte-titulo">30 DIAS</div><div class="plano-preco"><span class="cifrao">R$</span><span class="valor">70</span></div><a href="https://seguroamplopay.com/checkout/cmq02cpc500ue01psgp0hjkhq?offer=QBP9NF9" target="_blank" class="btn-compra fonte-titulo">Comprar</a></div>
+            <div class="card-preco"><img src="IMG_3268.JPEG" style="width: 100%; margin-bottom: 10px; border-radius: 4px;"><div class="plano-duracao fonte-titulo">4 MESES</div><div class="plano-preco"><span class="cifrao">R$</span><span class="valor">100</span></div><a href="https://seguroamplopay.com/checkout/cmq02cpc500ue01psgp0hjkhq?offer=0KCQX9T" target="_blank" class="btn-compra fonte-titulo">Comprar</a></div>
+            <div class="card-preco"><img src="IMG_3268.JPEG" style="width: 100%; margin-bottom: 10px; border-radius: 4px;"><div class="plano-duracao fonte-titulo">PERMANENTE</div><div class="plano-preco"><span class="cifrao">R$</span><span class="valor">150</span></div><a href="https://seguroamplopay.com/checkout/cmq02cpc500ue01psgp0hjkhq?offer=5YYPOJF" target="_blank" class="btn-compra fonte-titulo">Comprar</a></div>
+
+            <div class="box-explicacao">
+                <p><strong>DIFERENCIAL PAINEL:</strong> Interface exclusiva 100% Antiban e Antiblacklist. Não requer o uso de outro Free Fire (instalação direta). Compatível com qualquer Android.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function mostrarPlanos(id) {
+            document.getElementById('planos-ios').style.display = 'none';
+            document.getElementById('planos-android').style.display = 'none';
+            document.getElementById(id).style.display = 'grid';
+        }
+    </script>
+
+    <div class="container-flutuante">
+        <a href="https://wa.me/5584920021373" target="_blank" class="btn-flutuante"><img src="WhatsApp Image 2026-06-04 at 18.12.49.jpeg" style="width: 100%; height: 100%; object-fit: cover;"></a>
+        <a href="https://discord.gg/5TgxUsFmm" target="_blank" class="btn-flutuante"><img src="WhatsApp Image 2026-06-04 at 17.10.42.jpeg" style="width: 100%; height: 100%; object-fit: cover;"></a>
+        <a href="https://www.instagram.com/chukyxiter" target="_blank" class="btn-flutuante"><img src="WhatsApp Image 2026-06-04 at 17.10.20.jpeg" style="width: 100%; height: 100%; object-fit: cover;"></a>
+    </div>
+
+</body>
+</html>
