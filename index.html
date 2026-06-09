@@ -49,11 +49,14 @@
         @media (max-width: 600px) { .hero h1 { font-size: 2.2rem; padding: 0 10px; } }
 
         .hero p { color: #bcbcc6; max-width: 750px; margin: 0 auto 45px auto; font-size: 1.35rem; font-weight: 700; text-transform: uppercase; }
+        .hero-botoes { display: flex; flex-direction: column; align-items: center; gap: 15px; }
         .btn { display: inline-block; background: linear-gradient(180deg, #ff002b 0%, #b3001e 100%); color: #ffffff; padding: 18px 55px; text-decoration: none; font-weight: 900; font-size: 1.05rem; border-radius: 4px; text-transform: uppercase; box-shadow: 0 4px 25px rgba(255, 0, 43, 0.4); }
+        .btn-suporte { display: inline-block; background: transparent; border: 1px solid rgba(255, 0, 43, 0.5); color: #ff002b; padding: 14px 45px; text-decoration: none; font-weight: 900; font-size: 0.95rem; border-radius: 4px; text-transform: uppercase; transition: 0.3s; }
+        .btn-suporte:hover { background: rgba(255, 0, 43, 0.1); border-color: #ff002b; }
+
         .barra-status { background: rgba(4, 0, 1, 0.75); border-top: 1px solid rgba(255, 0, 43, 0.2); border-bottom: 1px solid rgba(255, 0, 43, 0.2); padding: 18px; text-align: center; font-weight: 700; font-size: 0.95rem; display: flex; justify-content: center; gap: 60px; backdrop-filter: blur(10px); }
         .produtos-container { padding: 100px 6% 40px 6%; text-align: center; }
         
-        /* AJUSTE RESPONSIVO: Ícones lado a lado */
         .grid-cards { display: flex; justify-content: center; gap: 15px; flex-wrap: nowrap; margin: 0 auto; max-width: 100%; }
         .card-seletor { background: rgba(12, 4, 6, 0.8); border: 1px solid rgba(255, 0, 43, 0.1); border-radius: 8px; padding: 25px 15px; display: flex; flex-direction: column; align-items: center; width: 100%; max-width: 200px; cursor: pointer; }
         
@@ -105,7 +108,10 @@
     <section class="hero">
         <h1 class="fonte-titulo">CHUCKY<span>XITER</span></h1>
         <p>MELHOR PROXY DO CENARIO E PAINEIS</p>
-        <a href="#vitrine" class="btn fonte-titulo">Ver Produtos</a>
+        <div class="hero-botoes">
+            <a href="#vitrine" class="btn fonte-titulo">Ver Produtos</a>
+            <a href="https://linkbio.co/7120218FUIjFs" target="_blank" class="btn-suporte fonte-titulo">💬 FALE COM O SUPORTE</a>
+        </div>
     </section>
 
     <div class="barra-status">
